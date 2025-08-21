@@ -1,0 +1,33 @@
+{
+  "name": "namaste-react-learning",
+  "version": "1.0.0",
+  "description": "This is Namaste React Course",
+  "keywords": [
+    "react"
+  ],
+  "homepage": "https://github.com/Asadali52/namaste-react-course#readme",
+  "bugs": {
+    "url": "https://github.com/Asadali52/namaste-react-course/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Asadali52/namaste-react-course.git"
+  },
+  "license": "ISC",
+  "author": "Asad Ali",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "browerslist": [
+    "last 2 versions"
+  ]
+}

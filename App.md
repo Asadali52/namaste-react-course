@@ -1,4 +1,8 @@
-/* <div id="parent">
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+/*
+ <div id="parent">
     <div id="child1">
         <h1 id="heading1">This is nested heading from React !</h1>
         <h2 id="heading2">This is Sibling Heading2</h2>
