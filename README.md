@@ -20,3 +20,9 @@
 - HTTPs
 - Tree Shaking - remove unused code
 - Different Dev and production bundles
+
+# #############################################
+
+- Two ways to create REACT COMPONENT
+=> Class Based Component - Old
+=> Functional Component - New

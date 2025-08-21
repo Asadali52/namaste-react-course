@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.span {
+    color: yellow;
+}
