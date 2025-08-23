@@ -29,7 +29,8 @@
   },
   "dependencies": {
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "react-loading-skeleton": "^3.5.0"
   },
   "browerslist": [
     "last 2 versions"
