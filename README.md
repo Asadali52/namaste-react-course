@@ -49,3 +49,15 @@
 | **Best Use Case**                   | Small-to-medium apps, MVPs, startups                          | Large, complex systems with many teams and scaling needs                  |
 
 # ##############################################
+
+# whenever state variable update, react triggers a reconciliation cycle (re-renders the component)
+
+# if no dependency array => useEffect is called on every render
+# if dependency array is empty = [] =>  useEffect is called on initial render (just once)
+# if dependency array is [somethingInsideIt] => useEffect is only called when "somethingInsideIt" changed
+
+# ##############################################
+
+# 2 types Routing in web App
+- client side routing
+- server side routing
