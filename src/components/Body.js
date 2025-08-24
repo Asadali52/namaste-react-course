@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import RestaurentCard from "./RestaurentCard";
-import { restaurantList } from "../utils/mockdata";
-import RestaurentCardSkeletonLoader from "./RestaurentCardSkeletonLoader";
+import { restaurantList, RESTAURANT_API_URL } from "../utils/mockdata";
+import RestaurentCardSkeletonLoader from "../components/loaders/RestaurentCardSkeletonLoader";
+import { Link } from "react-router-dom";
 
 
 const Body = () => {
@@ -16,7 +17,7 @@ const Body = () => {
     try {
       setLoading(true);
       setError(false);
-      const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.97210&lng=72.82460&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+      const data = await fetch(RESTAURANT_API_URL);
       const json = await data.json();
       setSwiggyData(json?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []);
       setFilterSwiggyData(json?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []);
@@ -80,24 +81,25 @@ const Body = () => {
         {loading ? (
           <RestaurentCardSkeletonLoader count={filterSwiggyData.length || 9} />
         ) : error ? (
-          <p className="col-span-full text-center text-red-500 text-sm h-[400px] leading-[400px]">
+          <p className="col-span-full text-center text-red-500 text-3xl h-[400px] leading-[400px]">
             Failed to fetch restaurants. Please try again.
           </p>
         ) : filterSwiggyData.length === 0 ? (
-          <p className="col-span-full text-center text-red-500 text-sm h-[400px] leading-[400px]">
+          <p className="col-span-full text-center text-red-500 text-3xl h-[400px] leading-[400px]">
             No Restaurant found
           </p>
         ) : (
           filterSwiggyData.map((res) => (
-            <RestaurentCard
-              key={res.info.id}
-              imgSrc={res.info.cloudinaryImageId}
-              resName={res.info.name}
-              cuisine={res.info.cuisines.join(", ")}
-              rating={res.info.avgRating}
-              deliveryTime={res.info.sla.deliveryTime}
-              cost={res.info.costForTwo}
-            />
+            <Link className="h-full block" key={res.info.id} to={`/restaurents/${res.info.id}`}>
+              <RestaurentCard
+                imgSrc={res.info.cloudinaryImageId}
+                resName={res.info.name}
+                cuisine={res.info.cuisines.join(", ")}
+                rating={res.info.avgRating}
+                deliveryTime={res.info.sla.deliveryTime}
+                cost={res.info.costForTwo}
+              />
+            </Link>
           ))
         )}
       </div>

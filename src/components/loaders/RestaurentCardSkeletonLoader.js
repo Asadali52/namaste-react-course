@@ -6,14 +6,16 @@ const RestaurentCardSkeletonLoader = ({ count = 6 }) => {
   return (
     <>
       {Array(count).fill(0).map((_, i) => (
-        <div key={i} className="bg-white rounded-lg shadow-sm p-0 w-full">
-          <Skeleton
-            height={160}
-            width="100%"
-            borderRadius="8px 8px 0 0"
-            baseColor="#e5e7eb"
-            highlightColor="#f3f4f6"
-          />
+        <div key={i} className="bg-white rounded-lg overflow-clip shadow-sm p-0 w-full">
+          <div className="bg-[#e5e7eb]">
+            <Skeleton
+              height={160}
+              width="100%"
+              borderRadius="8px 8px 0 0"
+              baseColor="#e5e7eb"
+              highlightColor="#f3f4f6"
+            />
+          </div>
 
           <div className="p-4 space-y-4">
             <Skeleton

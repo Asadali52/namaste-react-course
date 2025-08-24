@@ -11,7 +11,8 @@ import Header from "../src/components/Header";
 import Body from "../src/components/Body";
 import About from "../src/components/About";
 import Contact from "../src/components/Contact";
-import Error_404 from "./components/Error_404";
+import Error_404 from "../src/components/Error_404";
+import RestaurentMenu from "../src/components/RestaurentMenu";
 
 
 const AppLayout = () => {
@@ -41,6 +42,10 @@ const appRouter = createBrowserRouter([
         path: '/contact',
         element: <Contact />
       },
+      {
+        path: '/restaurents/:resId',
+        element: <RestaurentMenu/>
+      }
     ],
     errorElement: <Error_404 />
   },
