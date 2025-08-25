@@ -61,3 +61,61 @@
 # 2 types Routing in web App
 - client side routing
 - server side routing
+
+# ##############################################
+
+# React class component life cycle 
+- Parent Constructor
+- Parnet render
+
+  -- first child constructor
+  -- first child render
+
+  -- 2nd child constructor
+  -- 2nd child render
+
+  -- first child did mount
+  -- 2nd child did mount
+
+- Parent Did mount
+
+
+---------------------
+
+import React from 'react';
+import ClassUserCard from './ClassUserCard';
+
+class About extends React.Component {
+
+  constructor(props) {
+
+    super(props),
+      console.log("parent constructor")
+
+  }
+
+  componentDidMount() {
+    console.log("parent component dit mount");
+  }
+
+
+  render() {
+
+    console.log("parent render");
+
+    return (
+      <div className='p-7 space-y-12'>
+        <p>About</p>
+        <ClassUserCard name="First (class)" location="Lahore (class)" contact="ali@gmail.com (class)" />
+        <ClassUserCard name="Second (class)" location="Lahore (class)" contact="ali@gmail.com (class)" />
+      </div>
+    );
+
+  };
+
+};
+
+
+export default About;
+
+# ##############################################

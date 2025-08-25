@@ -27,7 +27,7 @@ const RestaurentMenu = () => {
   }, [resId]);
 
   const itemCardsVar = resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;
-  console.log("🚀 ~ RestaurentMenu ~ itemCardsVar:", itemCardsVar)
+  // console.log("🚀 ~ RestaurentMenu ~ itemCardsVar:", itemCardsVar)
 
   const info = resInfo?.cards?.[2]?.card?.card?.info;
   const { name, cuisines, cloudinaryImageId, costForTwoMessage } = info || {};

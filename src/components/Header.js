@@ -5,9 +5,9 @@ const Header = () => {
 
   const [btnNameReact, setBtnNameReact] = useState("Login");
 
-  useEffect(() => {
-    console.log("useeffect caleld");
-  }, [btnNameReact]);
+  // useEffect(() => {
+  //   console.log("useeffect caleld");
+  // }, [btnNameReact]);
 
   return (
     <div className="flex justify-between items-center border-b px-7 py-5 sticky top-0 z-10 bg-white">
