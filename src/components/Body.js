@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import RestaurentCard from "./RestaurentCard";
 import { restaurantList, RESTAURANT_API_URL } from "../utils/mockdata";
+import useOnlineStatusHook from "../utils/useOnlineStstusHook";
 import RestaurentCardSkeletonLoader from "../components/loaders/RestaurentCardSkeletonLoader";
-import { Link } from "react-router-dom";
 
 
 const Body = () => {
@@ -51,9 +52,17 @@ const Body = () => {
     setInputSearch("");
   }
 
+  const onlineStatus = useOnlineStatusHook();
+
+  if (onlineStatus === false) {
+    return (
+      <h1 className="text-center mt-10">Looks Like you are offline!! Please Check your internet connection</h1>
+    )
+  }
+
   return (
     <div className="px-7">
-      <div className="py-5 flex gap-4 items-center">
+      <div className="py-5 flex flex-wrap gap-4 items-center">
         <button
           onClick={topRatedRes}
           className="border rounded-sm whitespace-nowrap cursor-pointer text-sm px-4 py-2 hover:bg-gray-200"
@@ -85,7 +94,7 @@ const Body = () => {
             Failed to fetch restaurants. Please try again.
           </p>
         ) : filterSwiggyData.length === 0 ? (
-          <p className="col-span-full text-center text-red-500 text-3xl h-[400px] leading-[400px]">
+          <p className="col-span-full text-center text-red-500 text-2xl h-[400px] leading-[400px]">
             No Restaurant found
           </p>
         ) : (

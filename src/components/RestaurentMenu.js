@@ -1,41 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
-import { MENU_API_URL, img_base_URl } from '../utils/mockdata';
+import { img_base_URl } from '../utils/mockdata';
 import MenuCardSkeletonLoader from '../components/loaders/MenuCardSkeletonLoader';
+import useRestaurantMenuHook from '../utils/useRestaurantMenuHook';
 
 const RestaurentMenu = () => {
 
-  const [resInfo, setResInfo] = useState(null);
-  const [loading, setLoading] = useState(true);
   const { resId } = useParams();
-
-  const fetchMenu = async () => {
-    try {
-      setLoading(true);
-      const data = await fetch(MENU_API_URL + resId);
-      const json = await data.json();
-      setResInfo(json?.data);
-    } catch (error) {
-      console.error("Error fetching menu:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchMenu();
-  }, [resId]);
+  const { resInfo, loading, error } = useRestaurantMenuHook(resId);
 
   const itemCardsVar = resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;
-  // console.log("🚀 ~ RestaurentMenu ~ itemCardsVar:", itemCardsVar)
-
   const info = resInfo?.cards?.[2]?.card?.card?.info;
   const { name, cuisines, cloudinaryImageId, costForTwoMessage } = info || {};
 
   return (
     <div className="p-6">
 
-      <div className="bg-white rounded-2xl overflow-clip shadow-md mb-6 w-[300px]">
+      {error && (
+        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
+          Error loading restaurant menu: {error}
+        </div>
+      )}
+
+      <div className="bg-white rounded-2xl overflow-clip shadow-md mb-6 max-w-[300px]">
         {loading ? (
           <div className='h-[300px] flex justify-center items-center'>Loading...</div>
         ) : (

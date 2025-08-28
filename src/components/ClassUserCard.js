@@ -41,7 +41,7 @@ class ClassUserCard extends React.Component {
     const { name, location, company, avatar_url } = this.state.userInfo;
 
     return (
-      <div className='bg-white shadow-sm rounded-xl p-4 w-80 border border-gray-300 overflow-clip'>
+      <div className='bg-white shadow-sm rounded-xl p-4 max-w-80 border border-gray-300 overflow-clip'>
 
         <img src={avatar_url} alt="" className="h-[100px] w-[100px] rounded-full mx-auto border-2 border-gray-400" />
 

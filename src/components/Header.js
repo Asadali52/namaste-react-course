@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import useOnlineStatusHook from "../utils/useOnlineStstusHook";
 
 const Header = () => {
 
   const [btnNameReact, setBtnNameReact] = useState("Login");
-
-  // useEffect(() => {
-  //   console.log("useeffect caleld");
-  // }, [btnNameReact]);
+  const onlineStatus = useOnlineStatusHook();
 
   return (
-    <div className="flex justify-between items-center border-b px-7 py-5 sticky top-0 z-10 bg-white">
-      <Link to="/">
-        <div>Logo</div>
+    <div className="flex gap-5 justify-between items-center border-b md:px-7 px-4 py-4 sticky top-0 z-10 bg-black text-white">
+      <Link to="/" className="shrink-0">
+        <img height={40} width={40} className="rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk50Ut-wJKwbca3BTPssDUl_fqnsEE_D2tcw&s" />
       </Link>
-      <ul className="flex gap-8 items-center text-sm">
+      <ul className="flex gap-8 items-center text-sm whitespace-nowrap overflow-scroll">
         <li className="cursor-pointer duration-100 hover:text-red-500">
           <Link to="/">
             Home
@@ -30,19 +28,28 @@ const Header = () => {
             Contact Us
           </Link>
         </li>
-        <li className="cursor-pointer duration-100 hover:text-red-500">Cart</li>
-        <li>
-          <button
-            className="border rounded-sm whitespace-nowrap cursor-pointer px-5 py-1.5 hover:bg-gray-200"
-            onClick={() => {
-              btnNameReact === "Login" ? setBtnNameReact("Logout") : setBtnNameReact("Login");
-              console.log("btn clicked")
-            }}
-          >
-            {btnNameReact}
-          </button>
+        <li className="cursor-pointer duration-100 hover:text-red-500">
+          <Link to="/grocery">
+            Grocery
+          </Link>
         </li>
+        <li className="cursor-pointer duration-100 hover:text-red-500">Cart</li>
       </ul>
+
+      <div className="flex items-center gap-4">
+        <p className="flex items-center gap-2">
+          <span className={`h-3 w-3 rounded-full ${onlineStatus ? "bg-green-500" : "bg-red-500"}`} />
+          <span className="text-sm">{onlineStatus ? "Online" : "Offline"}</span>
+        </p>
+        <button className="border rounded-sm whitespace-nowrap cursor-pointer px-5 py-1.5 hover:bg-gray-200 hover:text-black"
+          onClick={() => {
+            btnNameReact === "Login" ? setBtnNameReact("Logout") : setBtnNameReact("Login");
+            console.log("btn clicked")
+          }}>
+          {btnNameReact}
+        </button>
+      </div>
+
     </div>
   );
 };
