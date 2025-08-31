@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { img_base_URl } from "../utils/mockdata";
+import MyUserContext from "../utils/MyUserContext";
 
 const RestaurentCard = ({ imgSrc, resName, cuisine, rating, deliveryTime, cost, promoted }) => {
+
+  const data = useContext(MyUserContext);
+
   return (
     <div className="bg-white relative rounded-lg h-full shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02]">
       <img className="rounded-t-lg h-[160px] w-full object-cover" src={img_base_URl + imgSrc} alt={"img"} />
@@ -18,6 +22,7 @@ const RestaurentCard = ({ imgSrc, resName, cuisine, rating, deliveryTime, cost, 
           <span>{deliveryTime} min</span>
         </div>
         <p className="text-red-600 font-medium">{cost}</p>
+        <p className="text-sm">User: <span className="text-green-800">{data.loggedInUser}</span> </p>
       </div>
     </div>
   );

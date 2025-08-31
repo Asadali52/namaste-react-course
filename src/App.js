@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
@@ -12,23 +12,36 @@ import About from "../src/components/About";
 import Contact from "../src/components/Contact";
 import Error_404 from "../src/components/Error_404";
 import RestaurentMenu from "../src/components/RestaurentMenu";
+import MyUserContext from "./utils/MyUserContext";
+
+
 // import Grocery from "./components/Grocery";
 const Grocery = lazy(() => import("./components/Grocery"))
-
 // chunking 
 // code splitting
 // dynamic bundling
 // lazy loading
 // on demand loading
 
-
-
 const AppLayout = () => {
+
+  const [userName, setUserName] = useState("");
+  useEffect(() => {
+    // make an API call and senc username and password
+    const data = {
+      name: "Asad"
+    }
+    setUserName(data.name)
+  }, [])
+
+
   return (
-    <div>
-      <Header />
-      <Outlet />
-    </div>
+    <MyUserContext.Provider value={{ loggedInUser: userName , setUserName}}>
+      <div>
+        <Header />
+        <Outlet />
+      </div>
+    </MyUserContext.Provider>
   );
 };
 
