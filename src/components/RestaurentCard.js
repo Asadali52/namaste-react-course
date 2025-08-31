@@ -1,10 +1,13 @@
 import React from "react";
 import { img_base_URl } from "../utils/mockdata";
 
-const RestaurentCard = ({ imgSrc, resName, cuisine, rating, deliveryTime, cost }) => {
+const RestaurentCard = ({ imgSrc, resName, cuisine, rating, deliveryTime, cost, promoted }) => {
   return (
-    <div className="bg-white rounded-lg h-full shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02]">
+    <div className="bg-white relative rounded-lg h-full shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02]">
       <img className="rounded-t-lg h-[160px] w-full object-cover" src={img_base_URl + imgSrc} alt={"img"} />
+      {promoted &&
+        <p className="absolute top-1 right-1 bg-red-600 text-white text-[11px] rounded-full py-1 px-3">Promoted</p>
+      }
       <div className="p-4 space-y-2">
         <h3 className="text-lg font-bold text-gray-800 truncate">{resName}</h3>
         <p className="text-sm text-gray-500">{cuisine}</p>

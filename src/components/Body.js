@@ -1,70 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import RestaurentCard from "./RestaurentCard";
-import { restaurantList, RESTAURANT_API_URL } from "../utils/mockdata";
 import useOnlineStatusHook from "../utils/useOnlineStstusHook";
+import useRestaurantHook from "../utils/useRestaurantHook";
 import RestaurentCardSkeletonLoader from "../components/loaders/RestaurentCardSkeletonLoader";
 
-
 const Body = () => {
-
-  const [swiggyData, setSwiggyData] = useState([]);
-  const [filterSwiggyData, setFilterSwiggyData] = useState([]);
-  const [inputSearch, setInputSearch] = useState("");
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-
-  const fetchData = async () => {
-    try {
-      setLoading(true);
-      setError(false);
-      const data = await fetch(RESTAURANT_API_URL);
-      const json = await data.json();
-      setSwiggyData(json?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []);
-      setFilterSwiggyData(json?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []);
-    } catch (err) {
-      console.error("Error fetching data", err);
-      setError(true);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    fetchData();
-  }, [])
-
-
-  const topRatedRes = () => {
-    const filtered = swiggyData.filter((res) => Number(res.info.avgRating) >= 4.5);
-    setFilterSwiggyData(filtered);
-  };
-
-
-  useEffect(() => {
-    const filtered = swiggyData.filter((res) => res.info.name.toLowerCase().includes(inputSearch.toLowerCase()));
-    setFilterSwiggyData(filtered);
-  }, [inputSearch, swiggyData]);
-
-
-  const resetFilters = () => {
-    setFilterSwiggyData(swiggyData);
-    setInputSearch("");
-  }
+  const {
+    filterSwiggyData,
+    inputSearch,
+    loading,
+    error,
+    setInputSearch,
+    filterTopRated,
+    resetFilters,
+  } = useRestaurantHook();
+  console.log("🚀 ~ Body ~ filterSwiggyData:", filterSwiggyData)
 
   const onlineStatus = useOnlineStatusHook();
 
   if (onlineStatus === false) {
     return (
       <h1 className="text-center mt-10">Looks Like you are offline!! Please Check your internet connection</h1>
-    )
-  }
+    );
+  };
 
   return (
     <div className="px-7">
       <div className="py-5 flex flex-wrap gap-4 items-center">
         <button
-          onClick={topRatedRes}
+          onClick={filterTopRated}
           className="border rounded-sm whitespace-nowrap cursor-pointer text-sm px-4 py-2 hover:bg-gray-200"
         >
           Top Rated Restaurants
@@ -107,6 +72,7 @@ const Body = () => {
                 rating={res.info.avgRating}
                 deliveryTime={res.info.sla.deliveryTime}
                 cost={res.info.costForTwo}
+                promoted={res.info.avgRating >= 4.5}
               />
             </Link>
           ))

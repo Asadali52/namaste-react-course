@@ -6,6 +6,7 @@ const useRestaurantMenuHook = (resId) => {
     const [resInfo, setResInfo] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [openIndex, setOpenIndex] = useState(null);
 
     useEffect(() => {
         fetchData();
@@ -26,7 +27,7 @@ const useRestaurantMenuHook = (resId) => {
         }
     }
 
-    return { resInfo, loading, error };
+    return { resInfo, loading, error, openIndex, setOpenIndex };
 }
 
 export default useRestaurantMenuHook;
