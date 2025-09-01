@@ -6,12 +6,12 @@ import {
   Outlet
 } from "react-router-dom";
 
-import Header from "../src/components/Header";
-import Body from "../src/components/Body";
-import About from "../src/components/About";
-import Contact from "../src/components/Contact";
-import Error_404 from "../src/components/Error_404";
-import RestaurentMenu from "../src/components/RestaurentMenu";
+import Header from "./components/Header";
+import Body from "./components/Body";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Error_404 from "./components/Error_404";
+import RestaurentMenu from "./components/RestaurentMenu";
 import MyUserContext from "./utils/MyUserContext";
 
 
