@@ -74,6 +74,8 @@ const Body = () => {
 
       </div>
 
+      <p className="mb-6 font-bold">Restaurants ({filterSwiggyData.length})</p>
+
       <div className="grid grid-cols-6 max-[1200px]:grid-cols-5 max-[1100px]:grid-cols-4 max-[850px]:grid-cols-3 max-[600px]:grid-cols-2 max-[400px]:grid-cols-1 gap-4">
         {loading ? (
           <RestaurentCardSkeletonLoader count={filterSwiggyData.length || 8} />

@@ -13,7 +13,6 @@ const Header = () => {
 
   // subscribing to the store using a selector 
   const cartItems = useSelector((store) => store.cart.items);
-  console.log("🚀 ~ Header ~ cartItems:", cartItems)
 
   return (
     <div className="flex gap-5 justify-between items-center border-b md:px-7 px-4 py-4 sticky top-0 z-10 bg-black text-white">

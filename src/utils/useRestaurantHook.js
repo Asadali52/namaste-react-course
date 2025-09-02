@@ -8,15 +8,33 @@ const useRestaurantHook = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
+  const extractRestaurants = (json) => {
+    const cards = json?.data?.cards || [];
+    for (let i = 0; i < cards.length; i++) {
+      const restaurants = cards[i]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+
+      if (Array.isArray(restaurants)) {
+        return restaurants;
+      }
+    }
+    return [];
+  };
+
+
   const fetchData = async () => {
     try {
       setLoading(true);
       setError(false);
+
       const data = await fetch(RESTAURANT_API_URL);
       const json = await data.json();
-      const restaurants = json?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+      
+      console.log("🚀 ~ fetchData ~ json:", json)
+      const restaurants = extractRestaurants(json);
+
       setSwiggyData(restaurants);
       setFilterSwiggyData(restaurants);
+
     } catch (err) {
       console.error("Error fetching data", err);
       setError(true);
@@ -30,7 +48,7 @@ const useRestaurantHook = () => {
   }, []);
 
   useEffect(() => {
-    const filtered = swiggyData.filter((res) => 
+    const filtered = swiggyData.filter((res) =>
       res.info.name.toLowerCase().includes(inputSearch.toLowerCase())
     );
     setFilterSwiggyData(filtered);
