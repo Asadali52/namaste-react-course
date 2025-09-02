@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatusHook from "../utils/useOnlineStstusHook";
 import MyUserContext from "../utils/MyUserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
 
@@ -9,6 +10,10 @@ const Header = () => {
   const onlineStatus = useOnlineStatusHook();
 
   const { loggedInUser } = useContext(MyUserContext);
+
+  // subscribing to the store using a selector 
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log("🚀 ~ Header ~ cartItems:", cartItems)
 
   return (
     <div className="flex gap-5 justify-between items-center border-b md:px-7 px-4 py-4 sticky top-0 z-10 bg-black text-white">
@@ -36,7 +41,12 @@ const Header = () => {
             Grocery
           </Link>
         </li>
-        <li className="cursor-pointer duration-100 hover:text-red-500">Cart</li>
+        <Link to="/cart">
+          <li className="cursor-pointer duration-100 group hover:text-red-500">
+            Cart
+            <span className=" bg-red-500 rounded-full px-1 group-hover:text-white -right-4 ml-2">{cartItems.length}</span>
+          </li>
+        </Link>
         <li className="cursor-pointer font-bold duration-100 hover:text-purple-600 text-red-500">Welcome, {loggedInUser}</li>
       </ul>
 

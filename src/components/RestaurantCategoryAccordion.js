@@ -1,10 +1,19 @@
 import React from 'react';
 import { img_base_URl } from '../utils/mockdata';
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/store/CartSlice";
 
 const RestaurantCategoryAccordion = ({ data, isOpen, setOpenIndex }) => {
 
   const handleOpen = () => {
     setOpenIndex();
+  }
+
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (item) => {
+    // dispatch an action
+    dispatch(addItem(item));
   }
 
   return (
@@ -26,7 +35,7 @@ const RestaurantCategoryAccordion = ({ data, isOpen, setOpenIndex }) => {
                 ) : (
                   <div className='bg-gray-200 w-[150px] text-black flex justify-center items-center'>no image</div>
                 )}
-                <button className="border bottom-1 left-12 absolute rounded-sm whitespace-nowrap cursor-pointer text-[10px] px-2 py-1 bg-gray-200 hover:bg-black hover:text-white">
+                <button onClick={() => handleAddToCart(item)} className="border bottom-1 left-12 absolute rounded-sm whitespace-nowrap cursor-pointer text-[10px] px-2 py-1 bg-gray-200 hover:bg-black hover:text-white">
                   ADD
                 </button>
               </div>

@@ -80,7 +80,9 @@
 - Parent Did mount
 
 
----------------------
+---------------------------------
+
+<!-- class component  -->
 
 import React from 'react';
 import ClassUserCard from './ClassUserCard';
@@ -119,3 +121,12 @@ class About extends React.Component {
 export default About;
 
 # ##############################################
+
+# REDUX TOOLKIT
+
+- install @reduxjs/toolkit and react-redux
+- Build our store 
+- Connect our store to our App
+- Slice (cartSlice)
+- dispatch (action)
+- Selector
