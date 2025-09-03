@@ -29,7 +29,7 @@ const useRestaurantHook = () => {
       const data = await fetch(RESTAURANT_API_URL);
       const json = await data.json();
       
-      console.log("🚀 ~ fetchData ~ json:", json)
+      // console.log("🚀 ~ fetchData ~ json:", json)
       const restaurants = extractRestaurants(json);
 
       setSwiggyData(restaurants);

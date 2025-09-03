@@ -15,10 +15,36 @@ const RestaurentMenu = () => {
     openIndex,
     setOpenIndex
   } = useRestaurantMenuHook(resId);
+    // console.log("🚀 ~ RestaurentMenu ~ resInfo:", resInfo)
 
-  let categories = resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(c => c.card?.card?.["@type"] == "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory") || [];
-  const info = resInfo?.cards?.[2]?.card?.card?.info;
-  const { name, cuisines, cloudinaryImageId, costForTwoMessage } = info || {};
+  const extractCategories = (resInfo) => {
+    const cards = resInfo?.cards || [];
+    for (let i = 0; i < cards.length; i++) {
+      const groupedCard = cards[i]?.groupedCard;
+      if (groupedCard?.cardGroupMap?.REGULAR?.cards) {
+        return groupedCard.cardGroupMap.REGULAR.cards.filter(c =>
+          c.card?.card?.["@type"] == "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+        );
+      }
+    }
+    return [];
+  };
+
+  const extractRestaurantInfo = (resInfo) => {
+    const cards = resInfo?.cards || [];
+    for (let i = 0; i < cards.length; i++) {
+      const info = cards[i]?.card?.card?.info;
+      if (info && info.name) {
+        return info;
+      }
+    }
+    return null;
+  };
+
+  let categories = extractCategories(resInfo);
+  const info = extractRestaurantInfo(resInfo);
+  // console.log("🚀 ~ RestaurentMenu ~ extractRestaurantInfo(resInfo):", extractRestaurantInfo(resInfo))
+  const { name, cuisines, cloudinaryImageId, costForTwoMessage, city } = info || {};
 
 
   return (
@@ -43,6 +69,7 @@ const RestaurentMenu = () => {
             <div className="p-4 space-y-2">
               <h1 className="text-2xl font-bold">{name}</h1>
               <h3 className="text-gray-600">{cuisines?.join(", ")}</h3>
+              <p className="text-gray-600"> <span className='font-bold'>City:</span> {city}</p>
               <p className="text-red-700 font-medium">{costForTwoMessage}</p>
             </div>
           </>
