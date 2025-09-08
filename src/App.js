@@ -12,7 +12,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error_404 from "./components/Error_404";
 import RestaurentMenu from "./components/RestaurentMenu";
-import MyUserContext from "./utils/MyUserContext";
+import MyUserContext from "./utils/context/MyUserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/store/appStore";
 import Cart from "./components/Cart";

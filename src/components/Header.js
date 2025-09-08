@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import useOnlineStatusHook from "../utils/useOnlineStstusHook";
-import MyUserContext from "../utils/MyUserContext";
+import useOnlineStatusHook from "../utils/hooks/useOnlineStstusHook";
+import MyUserContext from "../utils/context/MyUserContext";
 import { useSelector } from "react-redux";
 
 const Header = () => {

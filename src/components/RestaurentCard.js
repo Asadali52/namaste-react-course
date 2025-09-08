@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { img_base_URl } from "../utils/mockdata";
-import MyUserContext from "../utils/MyUserContext";
+import MyUserContext from "../utils/context/MyUserContext";
 
 const RestaurentCard = ({ imgSrc, resName, cuisine, rating, deliveryTime, cost, promoted }) => {
 

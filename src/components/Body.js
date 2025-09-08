@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import RestaurentCard from "./RestaurentCard";
-import useOnlineStatusHook from "../utils/useOnlineStstusHook";
-import useRestaurantHook from "../utils/useRestaurantHook";
+import useOnlineStatusHook from "../utils/hooks/useOnlineStstusHook";
+import useRestaurantHook from "../utils/hooks/useRestaurantHook";
 import RestaurentCardSkeletonLoader from "../components/loaders/RestaurentCardSkeletonLoader";
-import MyUserContext from "../utils/MyUserContext";
+import MyUserContext from "../utils/context/MyUserContext";
 
 const Body = () => {
 

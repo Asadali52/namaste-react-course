@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { img_base_URl } from '../utils/mockdata';
 import MenuCardSkeletonLoader from '../components/loaders/MenuCardSkeletonLoader';
-import useRestaurantMenuHook from '../utils/useRestaurantMenuHook';
+import useRestaurantMenuHook from '../utils/hooks/useRestaurantMenuHook';
 import RestaurantCategoryAccordion from './RestaurantCategoryAccordion';
 
 const RestaurentMenu = () => {

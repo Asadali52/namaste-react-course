@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MENU_API_URL } from "./mockdata";
+import { MENU_API_URL } from "../mockdata";
 
 const useRestaurantMenuHook = (resId) => {
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { RESTAURANT_API_URL } from "./mockdata";
+import { RESTAURANT_API_URL } from "../mockdata";
 
 const useRestaurantHook = () => {
   const [swiggyData, setSwiggyData] = useState([]);
