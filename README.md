@@ -130,3 +130,28 @@ export default About;
 - Slice (cartSlice)
 - dispatch (action)
 - Selector
+
+
+# ############################################
+
+# what is state mutation ?
+- changing the data (state) inside redux.
+# EXAMPLE 
+- you cart is empty => items: [];
+- you add a pizza => state change to [pizza];
+- THAT CHANGE = MUTATION
+
+# Older Redux 
+
+- you were not allowed to change state directly 
+- you always had to return a new copy 
+- return {
+  ...state,
+  items: [...state.items, action.payload] // -NEW ARRAY
+}
+
+# Redux Toolkit (with immer)
+
+- Now you can write code as if you are mutating , like:
+- state.items.push(action.payload);
+-but behind the scenes, immer makes a new copy for you (so state is still safe/immutable). 
