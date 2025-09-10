@@ -155,3 +155,19 @@ export default About;
 - Now you can write code as if you are mutating , like:
 - state.items.push(action.payload);
 -but behind the scenes, immer makes a new copy for you (so state is still safe/immutable). 
+
+# ############################################
+
+# Types of testing (Developer)
+- Unit Testing
+- Integration Testing
+- End to end Testing - e2e Testing
+
+# setting up testing in our APP 
+- install react testing library => go to https://testing-library.com/docs/react-testing-library/intro
+- install jest => go to https://jestjs.io/docs/getting-started
+- installed babel dependencies => go to https://jestjs.io/docs/getting-started#using-babel
+- create babel.config.js and configure it 
+- configure .parcelrc config file to disable default babel transpilation => go to https://parceljs.org/languages/javascript/#babel
+- jest configuration => command => npm init jest@latest
+- install jsdom library => command => npm install --save-dev jest-environment-jsdom
