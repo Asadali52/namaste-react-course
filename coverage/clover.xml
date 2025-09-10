@@ -1,11 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1757525327055" clover="3.2.0">
-  <project timestamp="1757525327056" name="All files">
-    <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1" elements="3" coveredelements="3" complexity="0" loc="2" ncloc="2" packages="1" files="1" classes="1"/>
-    <file name="Sum.js" path="/Users/targetmobile/Desktop/namaste-react-learning/src/components/Sum.js">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <line num="2" count="1" type="stmt"/>
-      <line num="3" count="1" type="stmt"/>
-    </file>
+<coverage generated="1757527693155" clover="3.2.0">
+  <project timestamp="1757527693155" name="All files">
+    <metrics statements="29" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="14" coveredmethods="2" elements="43" coveredelements="12" complexity="0" loc="29" ncloc="29" packages="2" files="3" classes="3"/>
+    <package name="components">
+      <metrics statements="23" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="2"/>
+      <file name="Contact.js" path="/Users/targetmobile/Desktop/namaste-react-learning/src/components/Contact.js">
+        <metrics statements="21" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+      </file>
+      <file name="Sum.js" path="/Users/targetmobile/Desktop/namaste-react-learning/src/components/Sum.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils.store">
+      <metrics statements="6" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+      <file name="CounterSlice.js" path="/Users/targetmobile/Desktop/namaste-react-learning/src/utils/store/CounterSlice.js">
+        <metrics statements="6" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>

@@ -171,3 +171,6 @@ export default About;
 - configure .parcelrc config file to disable default babel transpilation => go to https://parceljs.org/languages/javascript/#babel
 - jest configuration => command => npm init jest@latest
 - install jsdom library => command => npm install --save-dev jest-environment-jsdom
+- install => npm i -D  @babel/preset-react - to make jsx work in test cases
+- include @babel/preset-react inside my babel.config.js
+- install => npm i -D @testing-library/jest-dom

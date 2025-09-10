@@ -40,6 +40,7 @@ const Contact = () => {
 
   return (
     <div className='p-4 space-y-4'>
+      <h1>Heading</h1>
       <div>
         <p>First Name</p>
         <input
