@@ -18,8 +18,8 @@ import appStore from "./utils/store/appStore";
 import Cart from "./components/Cart";
 import Footer from "./components/Footer";
 
-// import Grocery from "./components/Grocery";
-const Grocery = lazy(() => import("./components/Grocery"))
+// import GoogleSearch from "./components/GoogleSearch";
+const GoogleSearch = lazy(() => import('./components/GoogleSearch'));
 // chunking 
 // code splitting
 // dynamic bundling
@@ -70,10 +70,10 @@ const appRouter = createBrowserRouter([
         element: <Contact />
       },
       {
-        path: '/grocery',
+        path: '/googleSearch',
         element: (
           <Suspense fallback={<p className="text-red-500">Loading....</p>}>
-            <Grocery />
+            <GoogleSearch />
           </Suspense>
         )
       },

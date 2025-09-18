@@ -36,8 +36,8 @@ const Header = () => {
           </Link>
         </li>
         <li className="cursor-pointer duration-100 hover:text-red-500">
-          <Link to="/grocery">
-            Grocery
+          <Link to="/googleSearch">
+            Search
           </Link>
         </li>
         <Link to="/cart">

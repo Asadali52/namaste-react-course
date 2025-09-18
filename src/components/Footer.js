@@ -9,7 +9,6 @@ const Footer = () => {
         <nav className="flex items-center gap-8">
           <a className="hover:text-red-600" href="/about">About</a>
           <a className="hover:text-red-600" href="/contact">Contact</a>
-          <a className="hover:text-red-600" href="/grocery">Grocery</a>
         </nav>
       </div>
     </footer>
