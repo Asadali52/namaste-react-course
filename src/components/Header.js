@@ -46,6 +46,11 @@ const Header = () => {
             <span className=" bg-red-500 rounded-full px-1 group-hover:text-white -right-4 ml-2">{cartItems.length}</span>
           </li>
         </Link>
+        <li className="cursor-pointer duration-100 hover:text-red-500">
+          <Link to="/pagination">
+            Pagination
+          </Link>
+        </li>
         <li className="cursor-pointer font-bold duration-100 hover:text-purple-600 text-red-500">Welcome, {loggedInUser}</li>
       </ul>
 
